@@ -18,6 +18,7 @@ For making video run in CMD by converting video into frame of picture and make c
 
 # ข้อเสนอแนะ
   
+  - สามารถใช้ Bad_Apple.txt มาใช้ได้เลย ทำมาให้อยู่แล้ว
   - การ run ผ่าน ide เช่น VsCode อาจทำให้ Console print ค่าออกมาผิดเพี้ยน แนะนำให้ run ด้วย .exe ดีกว่า
   - เราสามารถ ปรับ frame rate, resolution ได้เองตามสบาย ไปแกะ Code กันเอาเอง
   - สามารถ Display ออกมาเป็น สีได้ ไปทำเอาเองถ้าต้องการ
