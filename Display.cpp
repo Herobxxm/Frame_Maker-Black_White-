@@ -21,16 +21,13 @@ void set_cursor_pos(COORD c) // set curser
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
 
-COORD get_cursor_pos() // get curser
+void ShowConsoleCursor(bool showFlag)
 {
-    CONSOLE_SCREEN_BUFFER_INFO screenBufferInfo;
-    HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE);
-    if (!GetConsoleScreenBufferInfo(hStd, &screenBufferInfo))
-        printf("GetConsoleScreenBufferInfo (%d)\n", GetLastError());
-    COORD Pos;
-    Pos.X = screenBufferInfo.dwCursorPosition.X;
-    Pos.Y = screenBufferInfo.dwCursorPosition.Y;
-    return Pos;
+    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_CURSOR_INFO     cursorInfo;
+    GetConsoleCursorInfo(out, &cursorInfo);
+    cursorInfo.bVisible = showFlag; // set the cursor visibility
+    SetConsoleCursorInfo(out, &cursorInfo);
 }
 
 void clearScreen()
@@ -40,6 +37,8 @@ void clearScreen()
         cout << "                                                                                                           " << endl;
     set_cursor_pos(StartOfScreen);
 }
+
+
 
 void runVideo(string Path)
 {
@@ -55,6 +54,7 @@ void runVideo(string Path)
     else
     {
         clearScreen();
+        ShowConsoleCursor(false);
         string line;
         string print = "";
         while (getline(File, line))
@@ -63,7 +63,7 @@ void runVideo(string Path)
                 set_cursor_pos(StartOfScreen);
                 cout << print;
                 print = "";
-                Sleep(20); // Adjust your frame rate here.
+                Sleep(33.33); // Adjust your frame rate here.
             }
             else
             {
@@ -89,6 +89,7 @@ int main()
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         cout << "Write your .txt here plese:";
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+        ShowConsoleCursor(true);
         getline(cin, File);
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         runVideo(File);
