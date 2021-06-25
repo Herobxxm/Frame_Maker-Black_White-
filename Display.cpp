@@ -9,7 +9,7 @@ using namespace std;
 
 COORD StartOfScreen = {0, 0};
 
-void color_text(int color, string text) // color = 7 white  color = 12 red
+void color_text(int color, string text) // color = 7 white  color = 12 red color 14 = yellow
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     cout << text << endl;
@@ -57,15 +57,13 @@ void runVideo(string Path)
         clearScreen();
         string line;
         string print = "";
-        bool GG = false;
         while (getline(File, line))
         {
             if (line == "nextFrame"){
-                clearScreen();
+                set_cursor_pos(StartOfScreen);
                 cout << print;
                 print = "";
                 Sleep(20); // Adjust your frame rate here.
-                GG = false;
             }
             else
             {
