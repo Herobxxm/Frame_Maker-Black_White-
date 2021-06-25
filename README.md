@@ -23,5 +23,5 @@ For making video run in CMD by converting video into frame of picture and make c
   - เราสามารถ ปรับ frame rate, resolution ได้เองตามสบาย ไปแกะ Code กันเอาเอง
   - สามารถ Display ออกมาเป็น สีได้ ไปทำเอาเองถ้าต้องการ
   - หากมีข้อเสนอแนะ ติดต่อมาได้ตามสบาย
-  - สามารถโอน True Wallet บริจาคได้ด้วยเบอร์ 095 8328899 อิอิ
+  - สามารถโอน True Wallet เพื่อบริจาคให้ผู้พัฒนาได้ : 095 8328899 
   - Project นี้ ใช้ Python แปลง video เป็น txt และ Display ผ่าน C++
